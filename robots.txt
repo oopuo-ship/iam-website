@@ -1,0 +1,13 @@
+# Robots.txt for InterActiveMove website
+# https://interactivemove.nl
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://interactivemove.nl/sitemap.xml
+
+# Disallow access to development/tool files
+Disallow: /tools/
+Disallow: /reference/
+Disallow: /.git/

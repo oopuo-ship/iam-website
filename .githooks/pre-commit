@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# M2-01 D-04: gitleaks pre-commit hook
+set -euo pipefail
+
+if ! command -v gitleaks >/dev/null 2>&1; then
+  echo "ERROR: gitleaks not installed. Install: https://github.com/gitleaks/gitleaks" >&2
+  echo "       Or run bootstrap.sh (M2 Phase 02) which installs it automatically." >&2
+  exit 1
+fi
+
+gitleaks protect --staged --redact --verbose

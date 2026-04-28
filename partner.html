@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Partner | InterActiveMove</title>
+    <meta name="description" content="Word reseller, installateur of distributeur van InterActiveMove interactieve projectiesystemen. Ontdek de voordelen van een partnerschap.">
+    <link rel="icon" href="media/icon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css?v=1773942644">
+
+    <script src="/js/htmx.min.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KPX78C22');</script>
+</head>
+<body data-page="partner" data-base="" data-section="">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPX78C22" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+    <a href="#main-content" class="skip-link">Ga naar inhoud</a>
+    
+    <div id="global-canvas-container">
+        <canvas id="projector-canvas"></canvas>
+    </div>
+    
+    <div id="page-wrapper">
+        <!-- NAV (permanent, bilingual) -->
+        <header>
+            <a href="/"><img src="media/logo-final.webp" alt="InterActiveMove" class="logo-img"></a>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item dropdown">
+                        <button class="nav-link"><span class="lang-nl">Producten</span><span class="lang-en">Products</span></button>
+                        <div class="dropdown-menu">
+                            <a href="/products/2-in-1-floor-wall"><span class="lang-nl">2-in-1 Vloer &amp; Muur</span><span class="lang-en">2-in-1 Floor &amp; Wall</span></a>
+                            <a href="/products/interactive-floor"><span class="lang-nl">Interactieve Vloer</span><span class="lang-en">Interactive Floor</span></a>
+                            <a href="/products/interactive-wall"><span class="lang-nl">Interactieve Muur</span><span class="lang-en">Interactive Wall</span></a>
+                            <a href="/products/interactive-sandbox"><span class="lang-nl">Interactieve Zandbak</span><span class="lang-en">Interactive Sandbox</span></a>
+                            <a href="/products/software"><span class="lang-nl">Software &amp; Maatwerk</span><span class="lang-en">Software &amp; Customization</span></a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <button class="nav-link"><span class="lang-nl">Mogelijkheden</span><span class="lang-en">Solutions</span></button>
+                        <div class="dropdown-menu">
+                            <a href="/build-a-park"><span class="lang-nl">Bouw een Park</span><span class="lang-en">Build a Park</span></a>
+                            <a href="/3d-games">3D <span class="lang-nl">Spellen</span><span class="lang-en">Games</span></a>
+                            <a href="/entertainment"><span class="lang-nl">Parken &amp; Speelhallen</span><span class="lang-en">Parks &amp; Arcades</span></a>
+                            <a href="/education"><span class="lang-nl">Onderwijs</span><span class="lang-en">Education</span></a>
+                            <a href="/healthcare"><span class="lang-nl">Zorg &amp; Revalidatie</span><span class="lang-en">Care &amp; Rehabilitation</span></a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                    <li class="nav-item">
+                        <a href="/pricing" class="nav-link"><span class="lang-nl">Prijzen</span><span class="lang-en">Prices</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/about" class="nav-link"><span class="lang-nl">Over Ons</span><span class="lang-en">About Us</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/blog" class="nav-link">Blog</a>
+                    </li>
+                </ul>
+                <div class="lang-toggle">
+                    <button class="lang-btn active" data-lang="nl" onclick="switchLang('nl')">NL</button>
+                    <span class="divider">|</span>
+                    <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+                </div>
+                <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <a href="/#contact" class="btn" style="padding: 0.5rem 1.5rem; font-size: 0.9rem; border-radius: 999px;">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Mobile Navigation Overlay -->
+        <div class="mobile-nav" id="mobileNav">
+            <a href="/" onclick="closeMobileNav()">Home</a>
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)">
+                    <span class="lang-nl">Producten</span><span class="lang-en">Products</span> <svg class="mobile-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="mobile-dropdown-items">
+                    <a href="/products/2-in-1-floor-wall"><span class="lang-nl">2-in-1 Vloer &amp; Muur</span><span class="lang-en">2-in-1 Floor &amp; Wall</span></a>
+                    <a href="/products/interactive-floor"><span class="lang-nl">Interactieve Vloer</span><span class="lang-en">Interactive Floor</span></a>
+                    <a href="/products/interactive-wall"><span class="lang-nl">Interactieve Muur</span><span class="lang-en">Interactive Wall</span></a>
+                    <a href="/products/interactive-sandbox"><span class="lang-nl">Interactieve Zandbak</span><span class="lang-en">Interactive Sandbox</span></a>
+                    <a href="/products/software"><span class="lang-nl">Software &amp; Maatwerk</span><span class="lang-en">Software &amp; Customization</span></a>
+                </div>
+            </div>
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)">
+                    <span class="lang-nl">Mogelijkheden</span><span class="lang-en">Solutions</span> <svg class="mobile-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="mobile-dropdown-items">
+                    <a href="/build-a-park"><span class="lang-nl">Bouw een Park</span><span class="lang-en">Build a Park</span></a>
+                    <a href="/3d-games">3D <span class="lang-nl">Spellen</span><span class="lang-en">Games</span></a>
+                    <a href="/entertainment"><span class="lang-nl">Parken &amp; Speelhallen</span><span class="lang-en">Parks &amp; Arcades</span></a>
+                    <a href="/education"><span class="lang-nl">Onderwijs</span><span class="lang-en">Education</span></a>
+                    <a href="/healthcare"><span class="lang-nl">Zorg &amp; Revalidatie</span><span class="lang-en">Care &amp; Rehabilitation</span></a>
+                </div>
+            </div>
+            <a href="/pricing" onclick="closeMobileNav()"><span class="lang-nl">Prijzen</span><span class="lang-en">Prices</span></a>
+            <a href="/about" onclick="closeMobileNav()"><span class="lang-nl">Over Ons</span><span class="lang-en">About Us</span></a>
+            <a href="/blog">Blog</a>
+            <a href="/#contact" onclick="closeMobileNav()">Contact</a>
+        </div>
+
+        <!-- Content Area (swapped by HTMX on lang change) -->
+        <main id="content-area">
+            
+        <!-- Hero Section -->
+        <section class="hero" style="min-height: 50vh;">
+            <div class="hero-content">
+                <h1 class="industrial-label" style="text-shadow: 2px 2px 0 #000;">WORD PARTNER</h1>
+                <p style="margin-bottom: 2rem; text-shadow: 1px 1px 0 #000">
+                    Groei mee met InterActiveMove als reseller, installateur of distributeur
+                </p>
+            </div>
+        </section>
+
+        <!-- Value Proposition -->
+        <section class="section section-opaque-light section-reveal">
+            <div class="container">
+                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                    <h2 class="industrial-label reveal-fade-up" style="margin-bottom: 1.5rem;">Waarom partner worden?</h2>
+                    <p class="reveal-fade-up" style="line-height: 1.8; color: var(--color-text-muted)">
+                        De markt voor interactieve projectiesystemen groeit snel. Scholen, zorginstellingen, speelhallen en evenementenlocaties 
+                        zoeken innovatieve oplossingen voor beweging, leren en entertainment. Als InterActiveMove-partner profiteert u van 
+                        een bewezen productlijn, uitgebreide ondersteuning en aantrekkelijke marges.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits -->
+        <section class="section section-reveal">
+            <div class="container">
+                <h2 class="industrial-label reveal-fade-up" style="text-align: center; margin-bottom: 2rem;">Voordelen van een partnerschap</h2>
+                <div class="park-hotspots reveal-stagger" style="max-width: 1000px; margin: 0 auto;">
+                    <div class="park-hotspot" style="cursor: default;">
+                        <div class="park-hotspot-icon">
+                            <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+                        </div>
+                        <h3 class="park-hotspot-title">Aantrekkelijke marges</h3>
+                        <p class="park-hotspot-desc">Competitieve inkoopprijzen en gezonde winstmarges op alle producten</p>
+                    </div>
+                    <div class="park-hotspot" style="cursor: default;">
+                        <div class="park-hotspot-icon">
+                            <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+                        </div>
+                        <h3 class="park-hotspot-title">Training & certificering</h3>
+                        <p class="park-hotspot-desc">Volledige producttraining, installatie-instructies en technische ondersteuning</p>
+                    </div>
+                    <div class="park-hotspot" style="cursor: default;">
+                        <div class="park-hotspot-icon">
+                            <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                        </div>
+                        <h3 class="park-hotspot-title">Marketingondersteuning</h3>
+                        <p class="park-hotspot-desc">Promotiemateriaal, demo-video's, verkooptools en co-marketing mogelijkheden</p>
+                    </div>
+                    <div class="park-hotspot" style="cursor: default;">
+                        <div class="park-hotspot-icon">
+                            <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </div>
+                        <h3 class="park-hotspot-title">Exclusief territorium</h3>
+                        <p class="park-hotspot-desc">Beschermd verkoopgebied zodat u zonder directe concurrentie kunt groeien</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partner Types -->
+        <section class="section section-opaque-light section-reveal">
+            <div class="container">
+                <h2 class="industrial-label reveal-fade-up" style="text-align: center; margin-bottom: 2rem;">Partnertypes</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto;">
+                    <div style="background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); border-radius: var(--radius-card); padding: 2rem; text-align: center;">
+                        <h3 style="color: var(--color-primary); margin-bottom: 1rem;"> Reseller</h3>
+                        <p style="color: var(--color-text-muted); line-height: 1.7;">Verkoop InterActiveMove-producten aan uw eigen klanten. Ideaal voor AV-integrators, speeltoestelfabrikanten en educatieve leveranciers.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); border-radius: var(--radius-card); padding: 2rem; text-align: center;">
+                        <h3 style="color: var(--color-primary); margin-bottom: 1rem;"> Installateur</h3>
+                        <p style="color: var(--color-text-muted); line-height: 1.7;">Installeer en onderhoud onze systemen bij klanten. Wij bieden technische training en certificering voor een kwalitatieve installatie.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); border-radius: var(--radius-card); padding: 2rem; text-align: center;">
+                        <h3 style="color: var(--color-primary); margin-bottom: 1rem;"> Distributeur</h3>
+                        <p style="color: var(--color-text-muted); line-height: 1.7;">Verdeel InterActiveMove-producten in uw regio of land. Voor organisaties met een bestaand distributienetwerk en lokale marktkennis.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-reveal">
+            <div class="container">
+                <h2 class="industrial-label reveal-fade-up" style="text-align: center; margin-bottom: 2rem;">Wat onze partners zeggen</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto;">
+                    <div style="background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); border-radius: var(--radius-card); padding: 2rem;">
+                        <p style="font-style: italic; color: var(--color-text-muted); margin-bottom: 1rem;">"Binnenkort delen onze partners hier hun ervaringen."</p>
+                        <p style="font-weight: 600;">— Partnerverhalen volgen binnenkort</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partner Form CTA -->
+        <section class="section section-opaque-dark">
+            <div class="container">
+                <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                    <h2 class="industrial-label" style="color: #fff; margin-bottom: 1.5rem;">Word vandaag nog partner</h2>
+                    <p style="color: rgba(255,255,255,0.7); margin-bottom: 2rem">
+                        Vul het formulier in of stuur ons een e-mail. Wij nemen binnen 2 werkdagen contact met u op om de mogelijkheden te bespreken.
+                    </p>
+                    <form onsubmit="sendContactEmail(event)" id="partnerContactForm" class="form-section glass-panel" style="text-align: left; padding: 2rem; margin-bottom: 2rem;">
+                        <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden;"><input type="text" name="website_url" tabindex="-1" autocomplete="off"></div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <input type="text" name="firstname" placeholder="Naam" aria-label="Naam" required>
+                            <input type="email" name="email" placeholder="E-mail" aria-label="E-mail" required>
+                        </div>
+                        <input type="text" name="company" placeholder="Organisatie" aria-label="Organisatie" style="width: 100%;" required>
+                        <textarea name="message" rows="4" placeholder="Vertel ons kort over uw organisatie en interesse in een partnerschap" aria-label="Bericht"></textarea>
+                        <div class="form-consent">
+                            <input type="checkbox" id="partner-privacy-consent" name="privacy_consent" required>
+                            <label for="partner-privacy-consent">
+                                Ik ga akkoord met de verwerking van mijn gegevens zoals beschreven in het
+                                <a href="/privacy" target="_blank">privacybeleid</a>. *
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-danger" style="width: 100%; border-radius: 999px;">VERSTUUR AANMELDING</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    
+
+    <!-- Professional Footer -->
+    <footer class="footer-professional">
+        <div class="footer-container">
+            <div class="footer-column footer-brand">
+                <img src="media/logo-final.webp" alt="InterActiveMove" class="footer-logo" loading="lazy">
+                <p class="footer-tagline">Beweeg, Leer en Speel met InterActiveMove</p>
+                <div class="footer-credit"><span>Website by </span><a href="https://oopuo.com" target="_blank" rel="noopener noreferrer">OOPUO</a></div>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/interactivemove" target="_blank" aria-label="Facebook"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+                    <a href="https://www.instagram.com/interactivemove" target="_blank" aria-label="Instagram"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12s.014 3.668.072 4.948c.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24s3.668-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948s-.014-3.668-.072-4.948c-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                    <a href="https://www.youtube.com/@IAM-InterActiveMove" target="_blank" aria-label="YouTube"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/build-a-park">Bouw een Park</a></li>
+                    <li><a href="/about">Over Ons</a></li>
+                    <li><a href="/pricing">Prijzen</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-heading">Producten</h4>
+                <ul class="footer-links">
+                    <li><a href="/products/interactive-floor">Interactieve Vloer</a></li>
+                    <li><a href="/products/interactive-wall">Interactieve Muur</a></li>
+                    <li><a href="/products/interactive-sandbox">Interactieve Zandbak</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-heading">Contact</h4>
+                <div class="footer-contact">
+                    <p><strong>Inter Active Move B.V.</strong></p>
+                    <p>Smitspol 15K, 3861RS Nijkerk</p>
+                    <p>Tel: <a href="tel:+31623998934">+31 6 2399 8934</a></p>
+                    <p>Email: <a href="mailto:klantcontact@interactivemove.nl">klantcontact@interactivemove.nl</a></p>
+                    <p style="margin-top: 0.5rem">KvK: 96157895</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 InterActiveMove B.V. Alle rechten voorbehouden.</p>
+    </footer>        </div>
+
+        </main>
+    </div>
+
+    <script src="projector.js"></script>
+
+    <script src="/js/site.js?v=1773933720"></script>
+    <script src="/js/cookie-consent.js"></script>
+    <script src="/js/contact-form.js"></script>
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/49291889.js"></script>
+    <script src="js/chat-config.js"></script>
+    <script src="js/chat-widget.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+media/final_wlogo.mp4
+aditionals/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Node
+node_modules/
+api/node_modules/
+
+var/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+
+# Secrets and environment
+.env
+.env.*
+!.env.example
+api/.env
+api/.env.*
+*.pem
+*.key
+*_rsa
+id_ed25519*
+credentials.json
+service-account*.json
+
+# Development / planning
+.planning/
+tools/*
+# Allow M2 env templates (no secrets; placeholders only) — per M2-02 Plan 01
+!tools/env-template
+!tools/env-staging-template
+# Allow tracked M2 tools — atomic-deploy script (M2-02 Plan 04) + prepare-clean-repo (M2-05)
+!tools/iam-deploy.sh
+!tools/prepare-clean-repo.sh
+!tools/m3-renames.map
+# Allow Plesk-target tools (M3-Plesk port)
+!tools/bootstrap-plesk.sh
+!tools/iam-deploy-plesk.sh
+media/dump iam/
+
+# Logs
+*.log
+
+# Coverage / test artifacts
+coverage/
+.nyc_output/
+*.lcov
+
+# Editor swap/backup files
+*~
+.*.swp
+.*.swo
+Session.vim
+.netrwhist
+

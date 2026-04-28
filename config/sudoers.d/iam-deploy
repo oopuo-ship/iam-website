@@ -1,0 +1,21 @@
+# IAM deploy sudoers drop-in — installed at /etc/sudoers.d/iam-deploy by bootstrap.sh.
+# Implements D-09 from M2-03-cicd: narrowly-scoped NOPASSWD for the deploy user.
+# File must be mode 440 and owned by root:root; visudo -cf validates before install.
+#
+# Allow `deploy` to run iam-deploy as the `iam` user without password:
+deploy ALL=(iam)  NOPASSWD: /usr/local/bin/iam-deploy *
+#
+# Allow `deploy` to reload/restart (but not start/stop/mask) the two services and nginx.
+# Paths cover both /bin and /usr/bin (Ubuntu usr-merge) and both `unit` and `unit.service` forms.
+Cmnd_Alias IAM_SVC_CTL = \
+    /bin/systemctl reload iam-api,                  /usr/bin/systemctl reload iam-api, \
+    /bin/systemctl reload iam-api.service,          /usr/bin/systemctl reload iam-api.service, \
+    /bin/systemctl reload iam-api-staging,          /usr/bin/systemctl reload iam-api-staging, \
+    /bin/systemctl reload iam-api-staging.service,  /usr/bin/systemctl reload iam-api-staging.service, \
+    /bin/systemctl reload nginx,                    /usr/bin/systemctl reload nginx, \
+    /bin/systemctl reload nginx.service,            /usr/bin/systemctl reload nginx.service, \
+    /bin/systemctl restart iam-api,                 /usr/bin/systemctl restart iam-api, \
+    /bin/systemctl restart iam-api.service,         /usr/bin/systemctl restart iam-api.service, \
+    /bin/systemctl restart iam-api-staging,         /usr/bin/systemctl restart iam-api-staging, \
+    /bin/systemctl restart iam-api-staging.service, /usr/bin/systemctl restart iam-api-staging.service
+deploy ALL=(root) NOPASSWD: IAM_SVC_CTL

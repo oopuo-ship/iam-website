@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prijzen | InterActiveMove</title>
+    <meta name="description" content="Bekijk onze prijzen en vraag een offerte aan voor interactieve vloeren, muren, zandbakken en meer. Maatwerk oplossingen voor elk budget.">
+    <link rel="icon" href="media/icon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css?v=1773942644">
+
+    <script src="/js/htmx.min.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KPX78C22');</script>
+</head>
+<body data-page="pricing" data-base="" data-section="">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPX78C22" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+    <a href="#main-content" class="skip-link">Ga naar inhoud</a>
+    
+    <div id="global-canvas-container">
+        <canvas id="projector-canvas"></canvas>
+    </div>
+    
+    <div id="page-wrapper">
+        <!-- NAV (permanent, bilingual) -->
+        <header>
+            <a href="/"><img src="media/logo-final.webp" alt="InterActiveMove" class="logo-img"></a>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item dropdown">
+                        <button class="nav-link"><span class="lang-nl">Producten</span><span class="lang-en">Products</span></button>
+                        <div class="dropdown-menu">
+                            <a href="/products/2-in-1-floor-wall"><span class="lang-nl">2-in-1 Vloer &amp; Muur</span><span class="lang-en">2-in-1 Floor &amp; Wall</span></a>
+                            <a href="/products/interactive-floor"><span class="lang-nl">Interactieve Vloer</span><span class="lang-en">Interactive Floor</span></a>
+                            <a href="/products/interactive-wall"><span class="lang-nl">Interactieve Muur</span><span class="lang-en">Interactive Wall</span></a>
+                            <a href="/products/interactive-sandbox"><span class="lang-nl">Interactieve Zandbak</span><span class="lang-en">Interactive Sandbox</span></a>
+                            <a href="/products/software"><span class="lang-nl">Software &amp; Maatwerk</span><span class="lang-en">Software &amp; Customization</span></a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <button class="nav-link"><span class="lang-nl">Mogelijkheden</span><span class="lang-en">Solutions</span></button>
+                        <div class="dropdown-menu">
+                            <a href="/build-a-park"><span class="lang-nl">Bouw een Park</span><span class="lang-en">Build a Park</span></a>
+                            <a href="/3d-games">3D <span class="lang-nl">Spellen</span><span class="lang-en">Games</span></a>
+                            <a href="/entertainment"><span class="lang-nl">Parken &amp; Speelhallen</span><span class="lang-en">Parks &amp; Arcades</span></a>
+                            <a href="/education"><span class="lang-nl">Onderwijs</span><span class="lang-en">Education</span></a>
+                            <a href="/healthcare"><span class="lang-nl">Zorg &amp; Revalidatie</span><span class="lang-en">Care &amp; Rehabilitation</span></a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                    <li class="nav-item">
+                        <a href="/pricing" class="nav-link"><span class="lang-nl">Prijzen</span><span class="lang-en">Prices</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/about" class="nav-link"><span class="lang-nl">Over Ons</span><span class="lang-en">About Us</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/blog" class="nav-link">Blog</a>
+                    </li>
+                </ul>
+                <div class="lang-toggle">
+                    <button class="lang-btn active" data-lang="nl" onclick="switchLang('nl')">NL</button>
+                    <span class="divider">|</span>
+                    <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+                </div>
+                <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <a href="/#contact" class="btn" style="padding: 0.5rem 1.5rem; font-size: 0.9rem; border-radius: 999px;">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Mobile Navigation Overlay -->
+        <div class="mobile-nav" id="mobileNav">
+            <a href="/" onclick="closeMobileNav()">Home</a>
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)">
+                    <span class="lang-nl">Producten</span><span class="lang-en">Products</span> <svg class="mobile-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="mobile-dropdown-items">
+                    <a href="/products/2-in-1-floor-wall"><span class="lang-nl">2-in-1 Vloer &amp; Muur</span><span class="lang-en">2-in-1 Floor &amp; Wall</span></a>
+                    <a href="/products/interactive-floor"><span class="lang-nl">Interactieve Vloer</span><span class="lang-en">Interactive Floor</span></a>
+                    <a href="/products/interactive-wall"><span class="lang-nl">Interactieve Muur</span><span class="lang-en">Interactive Wall</span></a>
+                    <a href="/products/interactive-sandbox"><span class="lang-nl">Interactieve Zandbak</span><span class="lang-en">Interactive Sandbox</span></a>
+                    <a href="/products/software"><span class="lang-nl">Software &amp; Maatwerk</span><span class="lang-en">Software &amp; Customization</span></a>
+                </div>
+            </div>
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)">
+                    <span class="lang-nl">Mogelijkheden</span><span class="lang-en">Solutions</span> <svg class="mobile-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="mobile-dropdown-items">
+                    <a href="/build-a-park"><span class="lang-nl">Bouw een Park</span><span class="lang-en">Build a Park</span></a>
+                    <a href="/3d-games">3D <span class="lang-nl">Spellen</span><span class="lang-en">Games</span></a>
+                    <a href="/entertainment"><span class="lang-nl">Parken &amp; Speelhallen</span><span class="lang-en">Parks &amp; Arcades</span></a>
+                    <a href="/education"><span class="lang-nl">Onderwijs</span><span class="lang-en">Education</span></a>
+                    <a href="/healthcare"><span class="lang-nl">Zorg &amp; Revalidatie</span><span class="lang-en">Care &amp; Rehabilitation</span></a>
+                </div>
+            </div>
+            <a href="/pricing" onclick="closeMobileNav()"><span class="lang-nl">Prijzen</span><span class="lang-en">Prices</span></a>
+            <a href="/about" onclick="closeMobileNav()"><span class="lang-nl">Over Ons</span><span class="lang-en">About Us</span></a>
+            <a href="/blog">Blog</a>
+            <a href="/#contact" onclick="closeMobileNav()">Contact</a>
+        </div>
+
+        <!-- Content Area (swapped by HTMX on lang change) -->
+        <main id="content-area">
+            
+        <!-- Hero Section -->
+        <section class="hero hero-glass" style="min-height: 60vh;">
+            <div id="hero-video-container" class="hero-video-container">
+                <img src="media/pricing_hero.webp" alt="Pricing Hero"
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="hero-content">
+                <h1 class="industrial-label" style="text-shadow: 2px 2px 0 #000;">TRANSPARANTE PRIJZEN</h1>
+                <p class="hero-subtitle">Kies het pakket dat past bij uw situatie — geen verrassingen, geen verborgen kosten</p>
+
+                <div class="pricing-trust-badges" style="margin-bottom: 2rem;">
+                    <div class="trust-badge">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        <span>Geen verborgen kosten</span>
+                    </div>
+                    <div class="trust-badge">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <span>Lease vanaf €199/mnd</span>
+                    </div>
+                    <div class="trust-badge">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                        <span>Offerte op maat</span>
+                    </div>
+                </div>
+
+                <div class="hero-cta-group">
+                    <a href="#vergelijk" class="btn btn-primary">Vergelijk Pakketten</a>
+                    <a href="/#contact" class="btn btn-secondary">Direct Advies</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Intro with Trust -->
+        <section class="section section-opaque-light">
+            <div class="container">
+                <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+                    <h2 class="industrial-label" style="margin-bottom: 1.5rem;">Investeer in interactieve beleving</h2>
+                    <p style="line-height: 1.8; color: var(--color-text-muted); margin-bottom: 2rem">
+                        Elke situatie is uniek. Daarom bieden wij maatwerkoplossingen met prijzen die aansluiten bij
+                        uw specifieke wensen en ruimte. Hieronder vindt u onze prijsindicaties per pakket.
+                    </p>
+                    <!-- Trust Badges -->
+                    <div class="pricing-trust-badges">
+                        <div class="trust-badge">
+                            <svg width="24" height="24" fill="var(--color-primary)" viewBox="0 0 24 24">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                            </svg>
+                            <span>2 Jaar Garantie</span>
+                        </div>
+                        <div class="trust-badge">
+                            <svg width="24" height="24" fill="var(--color-primary)" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                            <span>Geen Verborgen Kosten</span>
+                        </div>
+                        <div class="trust-badge">
+                            <svg width="24" height="24" fill="var(--color-primary)" viewBox="0 0 24 24">
+                                <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+                            </svg>
+                            <span>Flexibele Financiering</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Comparison Table -->
+        <section id="vergelijk" class="section section-opaque-dark">
+            <div class="container">
+                <h2 class="industrial-label" style="text-align: center; color: #fff; margin-bottom: 1rem;">Vergelijk onze producten</h2>
+                <p style="text-align: center; color: rgba(255,255,255,0.6); margin-bottom: 3rem;">Alle prijzen zijn indicatief en exclusief BTW</p>
+
+                <div class="comparison-table-wrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Vanaf Prijs</th>
+                                <th>Projectiegrootte</th>
+                                <th>Programma's</th>
+                                <th>Ideaal Voor</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="Product">
+                                    <div class="product-cell">
+                                        <svg width="32" height="32" fill="var(--color-primary)" viewBox="0 0 24 24">
+                                            <path d="M3 5v14h18V5H3zm16 12H5V7h14v10z" />
+                                        </svg>
+                                        <span>IAM mobiel solo vloer</span>
+                                    </div>
+                                </td>
+                                <td data-label="Vanaf Prijs"><strong class="price-highlight">€9.950</strong></td>
+                                <td data-label="Projectiegrootte">2x3 meter</td>
+                                <td data-label="Programma's">60+ programma's</td>
+                                <td data-label="Ideaal Voor">Scholen, Speelhallen</td>
+                                <td>
+                                    <a href="/#contact" class="btn btn-small">Offerte</a>
+                                </td>
+                            </tr>
+                            <tr class="popular-row">
+                                <td data-label="Product">
+                                    <div class="product-cell">
+                                        <svg width="32" height="32" fill="var(--color-primary)" viewBox="0 0 24 24">
+                                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z" />
+                                        </svg>
+                                        <span>IAM mobiel solo wand</span>
+                                        <span class="popular-tag">Populair</span>
+                                    </div>
+                                </td>
+                                <td data-label="Vanaf Prijs"><strong class="price-highlight">€9.950</strong></td>
+                                <td data-label="Projectiegrootte">Flexibel</td>
+                                <td data-label="Programma's">60+ programma's</td>
+                                <td data-label="Ideaal Voor">Wachtkamers, Zorg</td>
+                                <td>
+                                    <a href="/#contact" class="btn btn-danger btn-small">Offerte</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-label="Product">
+                                    <div class="product-cell">
+                                        <svg width="32" height="32" fill="var(--color-primary)" viewBox="0 0 24 24">
+                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93z" />
+                                        </svg>
+                                        <span>Interactieve Zandbak</span>
+                                    </div>
+                                </td>
+                                <td data-label="Vanaf Prijs"><strong class="price-highlight">€14.950</strong></td>
+                                <td data-label="Projectiegrootte">1x1.5 meter</td>
+                                <td data-label="Programma's">AR Landschappen</td>
+                                <td data-label="Ideaal Voor">Musea, Educatie</td>
+                                <td>
+                                    <a href="/#contact" class="btn btn-small">Offerte</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-label="Product">
+                                    <div class="product-cell">
+                                        <svg width="32" height="32" fill="var(--color-primary)" viewBox="0 0 24 24">
+                                            <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z" />
+                                        </svg>
+                                        <span>Maatwerk Software</span>
+                                    </div>
+                                </td>
+                                <td data-label="Vanaf Prijs"><strong class="price-highlight">Offerte op maat</strong></td>
+                                <td data-label="Projectiegrootte">-</td>
+                                <td data-label="Programma's">Eigen programma's</td>
+                                <td data-label="Ideaal Voor">Branding, Corporate</td>
+                                <td>
+                                    <a href="/#contact" class="btn btn-small">Bespreek</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- What's Included Section -->
+        <section class="section section-opaque-light section-reveal">
+            <div class="container">
+                <h2 class="industrial-label reveal-fade-up" style="text-align: center; margin-bottom: 1rem;">IAM mobiel pakketten</h2>
+                <p class="reveal-fade-up" style="text-align: center; color: var(--color-text-muted); margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Kies de IAM mobiel uitvoering die past bij uw ruimte, toepassing en gewenste uitstraling.
+                </p>
+
+                <div class="packages-grid reveal-stagger">
+                    <!-- IAM mobiel solo -->
+                    <div class="package-card">
+                        <div class="package-header">
+                            <h3>IAM mobiel solo</h3>
+                            <p class="package-tagline">Mobiele vloer of wand voor klanten die een duidelijke toepassing zoeken</p>
+                        </div>
+                        <div class="package-price">
+                            <span class="price-label">Vanaf</span>
+                            <span class="price-amount">€9.950</span>
+                        </div>
+                        <div class="package-content">
+                            <ul class="package-features">
+                                <li class="included">
+                                    <svg width="20" height="20" fill="#22c55e" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                    2-in-1 behuizing ingericht als mobiele vloer of wand
+                                </li>
+                                <li class="included">
+                                    <svg width="20" height="20" fill="#22c55e" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                    60+ interactieve programma's
+                                </li>
+                                <li class="included">
+                                    <svg width="20" height="20" fill="#22c55e" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                    Inclusief software, geen abonnement
+                                </li>
+                                <li class="included">
+                                    <svg width="20" height="20" fill="#22c55e" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                    2 jaar garantie
+                                </li>
+                                <li class="included">
+                                    <svg width="20" height="20" fill="#22c55e" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                    Later uit te breiden naar IAM mobiel duo
+                                </li>
+                                <li class="included">
+                                    <svg width="20" height="20" fill="#22c55e" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                    Training voor uw team en supportopties beschikbaar
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="package-footer">
+                            <a href="/#contact" class="btn btn-secondary" style="width: 100%;">Meer Informatie</a>
+                        </div>
+                    </div>
+
+                    <!-- IAM mobiel duo -->
+                    <div class="package-card featured">
+                        <div class="featured-badge">Meest Gekozen</div>
+                        <div class="package-header">
+                            <h3>IAM mobiel duo</h3>
+                            <p class="package-tagline">Standaard keuze voor vloer óf wand in één mobiel systeem (één modus tegelijk)</p>
+                        </div>
+                        <div class="package-price">
+                            <span class="price-label">Vanaf</span>
+                            <span class="price-amount">€14.950</span>
+                        </div>
+                        <div class="package-content">
+                            <ul class="package-features">
+                                <li class="included">
+                                    <svg width="20" height="20" fill="#22c55e" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                    2-in-1 behuizing inzetbaar als mobiele vloer óf wand (één modus tegelijk)
+                                </li>
+                                <li class="included">
+                                    <svg width="20" height="20" fill="#22c55e" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                    120+ interactieve programma's
+                                </li>
+                                <li class="included">
+                                    <svg width="20" height="20" fill="#22c55e" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                    Inclusief software, geen abonnement
+                                </li>
+                                <li class="included">
+                                    <svg width="20" height="20" fill="#22c55e" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                    2 jaar garantie
+                                </li>
+                                <li class="included">
+                                    <svg width="20" height="20" fill="#22c55e" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                    Ook inzetbaar voor video's, presentaties en andere projecties
+                                </li>
+                                <li class="included">
+                                    <svg width="20" height="20" fill="#22c55e" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                    Training voor uw team en supportopties beschikbaar
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="package-footer">
+                            <a href="/#contact" class="btn btn-primary" style="width: 100%;">Offerte Aanvragen</a>
+                        </div>
+                    </div>
+
+                    <!-- IAM mobiel premium -->
+                    <div class="package-card">
+                        <div class="package-header">
+                            <h3>IAM mobiel premium</h3>
+                            <p class="package-tagline">IAM mobiel duo met branding en een sterkere professionele presentatie</p>
+                        </div>
+                        <div class="package-price">
+                            <span class="price-label">Vanaf</span>
+                            <span class="price-amount">€16.950</span>
+                        </div>
+                        <div class="package-content">
+                            <ul class="package-features">
+                                <li class="included">
+                                    <svg width="20" height="20" fill="#22c55e" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                    IAM mobiel duo als basis met 120+ interactieve programma's
+                                </li>
+                                <li class="included">
+                                    <svg width="20" height="20" fill="#22c55e" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                    Inclusief software, geen abonnement
+                                </li>
+                                <li class="included">
+                                    <svg width="20" height="20" fill="#22c55e" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                    Logo op de behuizing en keuze uit geselecteerde kleuren of afwerking
+                                </li>
+                                <li class="included">
+                                    <svg width="20" height="20" fill="#22c55e" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                    Gepersonaliseerd startscherm en sterkere merkuitstraling
+                                </li>
+                                <li class="included">
+                                    <svg width="20" height="20" fill="#22c55e" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                    2 jaar garantie en training voor uw team
+                                </li>
+                                <li class="included">
+                                    <svg width="20" height="20" fill="#22c55e" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                    Supportopties beschikbaar voor de gekozen uitvoering
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="package-footer">
+                            <a href="/#contact" class="btn btn-secondary" style="width: 100%;">Neem Contact Op</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Testimonial -->
+        <section class="section testimonial-section">
+            <div class="container">
+                <div class="testimonial-featured">
+                    <div class="testimonial-content">
+                        <svg class="quote-icon" width="48" height="48" fill="var(--color-primary)" viewBox="0 0 24 24"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
+                        <blockquote>
+                            "We hebben lang getwijfeld over de investering, maar het IAM mobiel duo pakket heeft zichzelf binnen 8 maanden terugverdiend. De kinderen zijn enthousiaster dan ooit en ouders vertellen het door aan anderen. Beste beslissing die we genomen hebben."
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <strong>Directeur</strong>
+                                <span>Eigenaar, Kinderspeelparadijs</span>
+                                <span class="location">Amersfoort</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Guarantees -->
+        <section class="section section-opaque-dark">
+            <div class="container">
+                <h2 class="industrial-label" style="text-align: center; color: #fff; margin-bottom: 3rem;">Onze garanties</h2>
+
+                <div class="guarantees-grid">
+                    <div class="guarantee-card">
+                        <div class="guarantee-icon">
+                            <svg width="48" height="48" fill="var(--color-primary)" viewBox="0 0 24 24">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                            </svg>
+                        </div>
+                        <h3>Prijsgarantie</h3>
+                        <p>De prijs in uw offerte is de prijs die u betaalt. Geen verborgen kosten of verrassingen achteraf.</p>
+                    </div>
+
+                    <div class="guarantee-card">
+                        <div class="guarantee-icon">
+                            <svg width="48" height="48" fill="var(--color-primary)" viewBox="0 0 24 24">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                            </svg>
+                        </div>
+                        <h3>Transparante offerte</h3>
+                        <p>U ontvangt een gedetailleerde offerte met alle kosten, inclusief installatie en training.</p>
+                    </div>
+
+                    <div class="guarantee-card">
+                        <div class="guarantee-icon">
+                            <svg width="48" height="48" fill="var(--color-primary)" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                        </div>
+                        <h3>Tevredenheidsgarantie</h3>
+                        <p>Niet tevreden na installatie? Wij lossen het op - uw tevredenheid staat voorop.</p>
+                    </div>
+
+                    <div class="guarantee-card">
+                        <div class="guarantee-icon">
+                            <svg width="48" height="48" fill="var(--color-primary)" viewBox="0 0 24 24">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                            </svg>
+                        </div>
+                        <h3>Snelle levering</h3>
+                        <p>Standaard levertijd van 4-6 weken. Spoedlevering mogelijk in overleg.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Financing Options -->
+        <section class="section section-opaque-light">
+            <div class="container">
+                <h2 class="industrial-label" style="text-align: center; margin-bottom: 1rem;">Flexibele financiering</h2>
+                <p style="text-align: center; color: var(--color-text-muted); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Verschillende opties om de investering passend te maken voor uw budget
+                </p>
+
+                <div class="financing-grid">
+                    <div class="financing-card">
+                        <div class="financing-icon">
+                            <svg width="40" height="40" fill="var(--color-primary)" viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+                            </svg>
+                        </div>
+                        <h3>Lease</h3>
+                        <p class="financing-highlight">Vanaf €299/maand</p>
+                        <ul>
+                            <li>Geen grote investering vooraf</li>
+                            <li>Inclusief onderhoud en support</li>
+                            <li>Fiscaal voordelig</li>
+                            <li>Flexibele looptijden</li>
+                        </ul>
+                    </div>
+
+                    <div class="financing-card">
+                        <div class="financing-icon">
+                            <svg width="40" height="40" fill="var(--color-primary)" viewBox="0 0 24 24">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14h-2v-4H7l5-7v6h2l-5 7v-6z"/>
+                            </svg>
+                        </div>
+                        <h3>Betaling in termijnen</h3>
+                        <p class="financing-highlight">3, 6 of 12 termijnen</p>
+                        <ul>
+                            <li>Spreidt de investering</li>
+                            <li>0% rente bij 3 termijnen</li>
+                            <li>Geen BKR registratie</li>
+                            <li>Direct eigenaar</li>
+                        </ul>
+                    </div>
+
+                    <div class="financing-card">
+                        <div class="financing-icon">
+                            <svg width="40" height="40" fill="var(--color-primary)" viewBox="0 0 24 24">
+                                <path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                            </svg>
+                        </div>
+                        <h3>Subsidie advies</h3>
+                        <p class="financing-highlight">Voor onderwijsinstellingen</p>
+                        <ul>
+                            <li>NPO-gelden beschikbaar</li>
+                            <li>Wij helpen met aanvraag</li>
+                            <li>Ervaring met gemeentes</li>
+                            <li>Maximaal rendement</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing FAQ -->
+        <section class="section section-opaque-dark">
+            <div class="container">
+                <h2 class="industrial-label" style="text-align: center; color: #fff; margin-bottom: 2rem;">Veelgestelde vragen over prijzen</h2>
+                <div class="accordion" style="max-width: 800px; margin: 0 auto;">
+                    <details class="accordion-item">
+                        <summary>Waarom verschillen de prijzen per klant?</summary>
+                        <div class="accordion-content">
+                            Elke situatie is uniek. De uiteindelijke prijs hangt af van factoren zoals de grootte van het projectieoppervlak, het gekozen pakket, installatie-eisen en eventuele maatwerkwensen. Daarom maken wij altijd een offerte op maat na een intake-gesprek.
+                        </div>
+                    </details>
+                    <details class="accordion-item">
+                        <summary>Zijn er verborgen kosten na aankoop?</summary>
+                        <div class="accordion-content">
+                            Nee, wij zijn volledig transparant. De prijs in uw offerte is inclusief alle afgesproken onderdelen. Er zijn geen verplichte abonnementskosten. Software-updates zijn gratis. Alleen optionele uitbreidingen of extra programma's na aankoop kunnen extra kosten.
+                        </div>
+                    </details>
+                    <details class="accordion-item">
+                        <summary>Kan ik eerst uitproberen voordat ik koop?</summary>
+                        <div class="accordion-content">
+                            Ja! Wij bieden gratis demo's aan op locatie of in onze showroom, zodat u het systeem in de praktijk kunt ervaren voordat u een aankoopbeslissing neemt.
+                        </div>
+                    </details>
+                    <details class="accordion-item">
+                        <summary>Wat als mijn budget niet toereikend is?</summary>
+                        <div class="accordion-content">
+                            Wij bieden verschillende financieringsopties: lease vanaf €299/maand, betaling in termijnen (0% rente bij 3 termijnen), en voor scholen helpen wij graag bij subsidieaanvragen. Er is altijd een oplossing die past bij uw budget.
+                        </div>
+                    </details>
+                    <details class="accordion-item">
+                        <summary>Wat is de levertijd na bestelling?</summary>
+                        <div class="accordion-content">
+                            Standaard levertijd is 4-6 weken inclusief installatie en training. Bij urgentie is spoedlevering mogelijk in overleg. Wij plannen de installatie altijd in samenspraak met u op een moment dat het uitkomt.
+                        </div>
+                    </details>
+                    <details class="accordion-item">
+                        <summary>Kan ik later upgraden naar een groter pakket?</summary>
+                        <div class="accordion-content">
+                            Absoluut. U kunt altijd extra programma's, uitgebreidere garantie of maatwerk toevoegen. Het verschil in pakketprijs wordt dan verrekend. Zo groeit uw systeem mee met uw wensen en mogelijkheden.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="section section-opaque-light">
+            <div class="container">
+                <div class="final-cta-box" style="background: linear-gradient(135deg, var(--color-primary) 0%, #f5a800 100%); padding: 3rem; border-radius: var(--radius-card);">
+                    <h2 class="industrial-label" style="color: #000; margin-bottom: 1rem;">Klaar voor een vrijblijvende offerte?</h2>
+                    <p style="color: #333; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto">
+                        Neem contact op voor een offerte op maat. Wij denken graag met u mee over de beste oplossing voor uw situatie en budget.
+                    </p>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="/#contact" class="btn btn-large" style="background: #000; color: #fff;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0;"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+                            E-mail Direct
+                        </a>
+                        <a href="tel:+31623998934" class="btn btn-large" style="background: #fff; color: #000; border: 2px solid #000;">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 0.5rem;">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                            Bel Direct
+                        </a>
+                    </div>
+                    <p style="margin-top: 1.5rem; color: #333">
+                        Reactie binnen 24 uur gegarandeerd
+                    </p>
+                </div>
+            </div>
+        </section>
+    
+
+    <!-- Mobile Sticky CTA -->
+    <div class="mobile-sticky-cta">
+        <a href="/#contact" class="mobile-cta-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0;"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+            Vraag Offerte Aan
+        </a>
+    </div>
+
+    <!-- Site Footer -->
+    <footer class="footer-professional">
+        <div class="footer-container">
+            <div class="footer-column footer-brand">
+                <img src="media/logo-final.webp" alt="InterActiveMove" class="footer-logo" loading="lazy">
+                <p class="footer-tagline">Beweeg, Leer en Speel met InterActiveMove</p>
+                <div class="footer-credit"><span>Website by </span><a href="https://oopuo.com" target="_blank" rel="noopener noreferrer">OOPUO</a></div>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/interactivemove" target="_blank" aria-label="Facebook"><svg width="24" height="24" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+                        </svg></a>
+                    <a href="https://www.instagram.com/interactivemove" target="_blank" aria-label="Instagram"><svg width="24" height="24" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12s.014 3.668.072 4.948c.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24s3.668-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948s-.014-3.668-.072-4.948c-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                        </svg></a>
+                    <a href="https://www.youtube.com/@IAM-InterActiveMove" target="_blank" aria-label="YouTube"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-heading">Quick links</h4>
+                <ul class="footer-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/build-a-park">Bouw een Park</a></li>
+                    <li><a href="/about">Over Ons</a></li>
+                    <li><a href="/pricing">Prijzen</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-heading">Producten</h4>
+                <ul class="footer-links">
+                    <li><a href="/products/interactive-floor">Interactieve Vloer</a></li>
+                    <li><a href="/products/interactive-wall">Interactieve Muur</a></li>
+                    <li><a href="/products/interactive-sandbox">Interactieve Zandbak</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-heading">Contact</h4>
+                <div class="footer-contact">
+                    <p><strong>Inter Active Move B.V.</strong></p>
+                    <p>Smitspol 15K, 3861RS Nijkerk</p>
+                    <p>Tel: <a href="tel:+31623998934">+31 6 2399 8934</a></p>
+                    <p>Email: <a href="mailto:klantcontact@interactivemove.nl">klantcontact@interactivemove.nl</a></p>
+                    <p style="margin-top: 0.5rem">KvK: 96157895</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 InterActiveMove B.V. Alle rechten voorbehouden.</p>
+        </div>
+    </footer>
+
+        </main>
+    </div>
+
+    <script src="projector.js"></script>
+
+    <script src="/js/site.js?v=1773933720"></script>
+    <script src="/js/cookie-consent.js"></script>
+    <script src="/js/contact-form.js"></script>
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/49291889.js"></script>
+    <script src="js/chat-config.js"></script>
+    <script src="js/chat-widget.js"></script>
+</body>
+</html>

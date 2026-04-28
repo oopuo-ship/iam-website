@@ -1,0 +1,34 @@
+[Unit]
+Description=IAM chat proxy (staging)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=iam
+Group=iam
+WorkingDirectory=/var/www/iam-staging/current/api
+EnvironmentFile=/etc/iam-api-staging/env
+ExecStart=/usr/bin/node chat-proxy.js
+Restart=on-failure
+RestartSec=5s
+StartLimitBurst=3
+StartLimitIntervalSec=60
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=iam-api-staging
+
+# Resource limits per D-06
+MemoryMax=256M
+CPUQuota=50%
+TasksMax=50
+
+# Basic hardening (no sudo needed at runtime)
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/iam-api-staging
+
+[Install]
+WantedBy=multi-user.target

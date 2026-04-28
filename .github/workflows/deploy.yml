@@ -1,0 +1,174 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main, staging]
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Environment to deploy (prod|staging)"
+        required: true
+        default: staging
+        type: choice
+        options: [prod, staging]
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy-prod:
+    if: >
+      (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+      (github.event_name == 'workflow_dispatch' && inputs.target == 'prod')
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://interactivemove.nl
+    timeout-minutes: 10
+    env:
+      DEPLOY_ENV: prod
+      DOMAIN: interactivemove.nl
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build release tarball
+        id: tar
+        run: |
+          set -euo pipefail
+          SHA="${GITHUB_SHA::7}"
+          TARBALL="/tmp/iam-deploy-${SHA}.tar.gz"
+          tar --exclude='.git' \
+              --exclude='node_modules' \
+              --exclude='.github' \
+              --exclude='.env*' \
+              -czf "$TARBALL" .
+          ls -l "$TARBALL"
+          echo "sha=$SHA"         >> "$GITHUB_OUTPUT"
+          echo "tarball=$TARBALL" >> "$GITHUB_OUTPUT"
+
+      - name: Install SSH key
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H "$VPS_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Upload tarball to VPS
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+        run: |
+          scp -i ~/.ssh/id_ed25519 \
+              "${{ steps.tar.outputs.tarball }}" \
+              "${VPS_USER}@${VPS_HOST}:/tmp/"
+
+      - name: Run iam-deploy on VPS
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+          SHA:      ${{ steps.tar.outputs.sha }}
+        run: |
+          ssh -i ~/.ssh/id_ed25519 "${VPS_USER}@${VPS_HOST}" \
+            "sudo -u iam /usr/local/bin/iam-deploy $DEPLOY_ENV $SHA"
+
+      - name: Health check
+        run: |
+          set -euo pipefail
+          for i in 1 2 3 4 5; do
+            if curl -fsS --max-time 5 "https://${DOMAIN}/" -o /dev/null; then
+              echo "health check OK (attempt $i)"
+              exit 0
+            fi
+            sleep 3
+          done
+          echo "health check FAILED" >&2
+          exit 1
+
+      - name: Remove SSH key
+        if: always()
+        run: rm -f ~/.ssh/id_ed25519
+
+  deploy-staging:
+    if: >
+      (github.event_name == 'push' && github.ref == 'refs/heads/staging') ||
+      (github.event_name == 'workflow_dispatch' && inputs.target == 'staging')
+    runs-on: ubuntu-latest
+    environment:
+      name: staging
+      url: https://iam.abbamarkt.nl
+    timeout-minutes: 10
+    env:
+      DEPLOY_ENV: staging
+      DOMAIN: iam.abbamarkt.nl
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build release tarball
+        id: tar
+        run: |
+          set -euo pipefail
+          SHA="${GITHUB_SHA::7}"
+          TARBALL="/tmp/iam-deploy-${SHA}.tar.gz"
+          tar --exclude='.git' \
+              --exclude='node_modules' \
+              --exclude='.github' \
+              --exclude='.env*' \
+              -czf "$TARBALL" .
+          echo "sha=$SHA"         >> "$GITHUB_OUTPUT"
+          echo "tarball=$TARBALL" >> "$GITHUB_OUTPUT"
+
+      - name: Install SSH key
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H "$VPS_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Upload tarball to VPS
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+        run: |
+          scp -i ~/.ssh/id_ed25519 \
+              "${{ steps.tar.outputs.tarball }}" \
+              "${VPS_USER}@${VPS_HOST}:/tmp/"
+
+      - name: Run iam-deploy on VPS
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+          SHA:      ${{ steps.tar.outputs.sha }}
+        run: |
+          ssh -i ~/.ssh/id_ed25519 "${VPS_USER}@${VPS_HOST}" \
+            "sudo -u iam /usr/local/bin/iam-deploy $DEPLOY_ENV $SHA"
+
+      - name: Health check
+        run: |
+          set -euo pipefail
+          for i in 1 2 3 4 5; do
+            if curl -fsS --max-time 5 "https://${DOMAIN}/" -o /dev/null; then
+              echo "health check OK (attempt $i)"
+              exit 0
+            fi
+            sleep 3
+          done
+          echo "health check FAILED" >&2
+          exit 1
+
+      - name: Remove SSH key
+        if: always()
+        run: rm -f ~/.ssh/id_ed25519

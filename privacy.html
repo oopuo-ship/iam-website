@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacybeleid | InterActiveMove</title>
+    <meta name="description" content="Privacybeleid van Inter Active Move B.V. Lees hoe wij omgaan met uw persoonsgegevens.">
+    <link rel="icon" href="media/icon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css?v=1773942644">
+
+    <script src="/js/htmx.min.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KPX78C22');</script>
+</head>
+<body data-page="privacy" data-base="" data-section="">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPX78C22" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+    <a href="#main-content" class="skip-link">Ga naar inhoud</a>
+    
+    <div id="global-canvas-container">
+        <canvas id="projector-canvas"></canvas>
+    </div>
+    
+    <div id="page-wrapper">
+        <!-- NAV (permanent, bilingual) -->
+        <header>
+            <a href="/"><img src="media/logo-final.webp" alt="InterActiveMove" class="logo-img"></a>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item dropdown">
+                        <button class="nav-link"><span class="lang-nl">Producten</span><span class="lang-en">Products</span></button>
+                        <div class="dropdown-menu">
+                            <a href="/products/2-in-1-floor-wall"><span class="lang-nl">2-in-1 Vloer &amp; Muur</span><span class="lang-en">2-in-1 Floor &amp; Wall</span></a>
+                            <a href="/products/interactive-floor"><span class="lang-nl">Interactieve Vloer</span><span class="lang-en">Interactive Floor</span></a>
+                            <a href="/products/interactive-wall"><span class="lang-nl">Interactieve Muur</span><span class="lang-en">Interactive Wall</span></a>
+                            <a href="/products/interactive-sandbox"><span class="lang-nl">Interactieve Zandbak</span><span class="lang-en">Interactive Sandbox</span></a>
+                            <a href="/products/software"><span class="lang-nl">Software &amp; Maatwerk</span><span class="lang-en">Software &amp; Customization</span></a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <button class="nav-link"><span class="lang-nl">Mogelijkheden</span><span class="lang-en">Solutions</span></button>
+                        <div class="dropdown-menu">
+                            <a href="/build-a-park"><span class="lang-nl">Bouw een Park</span><span class="lang-en">Build a Park</span></a>
+                            <a href="/3d-games">3D <span class="lang-nl">Spellen</span><span class="lang-en">Games</span></a>
+                            <a href="/entertainment"><span class="lang-nl">Parken &amp; Speelhallen</span><span class="lang-en">Parks &amp; Arcades</span></a>
+                            <a href="/education"><span class="lang-nl">Onderwijs</span><span class="lang-en">Education</span></a>
+                            <a href="/healthcare"><span class="lang-nl">Zorg &amp; Revalidatie</span><span class="lang-en">Care &amp; Rehabilitation</span></a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                    <li class="nav-item">
+                        <a href="/pricing" class="nav-link"><span class="lang-nl">Prijzen</span><span class="lang-en">Prices</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/about" class="nav-link"><span class="lang-nl">Over Ons</span><span class="lang-en">About Us</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/blog" class="nav-link">Blog</a>
+                    </li>
+                </ul>
+                <div class="lang-toggle">
+                    <button class="lang-btn active" data-lang="nl" onclick="switchLang('nl')">NL</button>
+                    <span class="divider">|</span>
+                    <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+                </div>
+                <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <a href="/#contact" class="btn" style="padding: 0.5rem 1.5rem; font-size: 0.9rem; border-radius: 999px;">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Mobile Navigation Overlay -->
+        <div class="mobile-nav" id="mobileNav">
+            <a href="/" onclick="closeMobileNav()">Home</a>
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)">
+                    <span class="lang-nl">Producten</span><span class="lang-en">Products</span> <svg class="mobile-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="mobile-dropdown-items">
+                    <a href="/products/2-in-1-floor-wall"><span class="lang-nl">2-in-1 Vloer &amp; Muur</span><span class="lang-en">2-in-1 Floor &amp; Wall</span></a>
+                    <a href="/products/interactive-floor"><span class="lang-nl">Interactieve Vloer</span><span class="lang-en">Interactive Floor</span></a>
+                    <a href="/products/interactive-wall"><span class="lang-nl">Interactieve Muur</span><span class="lang-en">Interactive Wall</span></a>
+                    <a href="/products/interactive-sandbox"><span class="lang-nl">Interactieve Zandbak</span><span class="lang-en">Interactive Sandbox</span></a>
+                    <a href="/products/software"><span class="lang-nl">Software &amp; Maatwerk</span><span class="lang-en">Software &amp; Customization</span></a>
+                </div>
+            </div>
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)">
+                    <span class="lang-nl">Mogelijkheden</span><span class="lang-en">Solutions</span> <svg class="mobile-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="mobile-dropdown-items">
+                    <a href="/build-a-park"><span class="lang-nl">Bouw een Park</span><span class="lang-en">Build a Park</span></a>
+                    <a href="/3d-games">3D <span class="lang-nl">Spellen</span><span class="lang-en">Games</span></a>
+                    <a href="/entertainment"><span class="lang-nl">Parken &amp; Speelhallen</span><span class="lang-en">Parks &amp; Arcades</span></a>
+                    <a href="/education"><span class="lang-nl">Onderwijs</span><span class="lang-en">Education</span></a>
+                    <a href="/healthcare"><span class="lang-nl">Zorg &amp; Revalidatie</span><span class="lang-en">Care &amp; Rehabilitation</span></a>
+                </div>
+            </div>
+            <a href="/pricing" onclick="closeMobileNav()"><span class="lang-nl">Prijzen</span><span class="lang-en">Prices</span></a>
+            <a href="/about" onclick="closeMobileNav()"><span class="lang-nl">Over Ons</span><span class="lang-en">About Us</span></a>
+            <a href="/blog">Blog</a>
+            <a href="/#contact" onclick="closeMobileNav()">Contact</a>
+        </div>
+
+        <!-- Content Area (swapped by HTMX on lang change) -->
+        <main id="content-area">
+            
+            <section class="section section-opaque-light" style="padding-top: 120px;">
+                <div class="container">
+                    <article class="legal-content">
+                        <h1 class="industrial-label">Privacybeleid</h1>
+                        <p class="legal-updated"><strong>Laatst bijgewerkt:</strong> januari 2026</p>
+
+                        <h2>1. Wie zijn wij?</h2>
+                        <p>
+                            <strong>Inter Active Move B.V.</strong><br>
+                            Smitspol 15K<br>
+                            3861RS Nijkerk<br>
+                            Nederland<br><br>
+                            KvK-nummer: 96157895<br>
+                            E-mail: <a href="mailto:privacy@interactivemove.nl">privacy@interactivemove.nl</a>
+                        </p>
+
+                        <h2>2. Welke persoonsgegevens verwerken wij?</h2>
+
+                        <h3>2.1 Gegevens die u ons verstrekt</h3>
+                        <ul>
+                            <li>Naam</li>
+                            <li>E-mailadres</li>
+                            <li>Telefoonnummer</li>
+                            <li>Bedrijfsnaam</li>
+                            <li>Inhoud van uw bericht</li>
+                        </ul>
+
+                        <h3>2.2 Gegevens die automatisch worden verzameld</h3>
+                        <ul>
+                            <li>IP-adres (geanonimiseerd)</li>
+                            <li>Browsertype en -versie</li>
+                            <li>Apparaattype</li>
+                            <li>Bezochte pagina's</li>
+                            <li>Datum en tijd van bezoek</li>
+                        </ul>
+
+                        <h2>3. Waarvoor gebruiken wij uw gegevens?</h2>
+                        <table class="legal-table">
+                            <thead>
+                                <tr>
+                                    <th>Doel</th>
+                                    <th>Rechtsgrond</th>
+                                    <th>Bewaartermijn</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Beantwoorden van vragen</td>
+                                    <td>Toestemming / Gerechtvaardigd belang</td>
+                                    <td>2 jaar na laatste contact</td>
+                                </tr>
+                                <tr>
+                                    <td>Offertes maken</td>
+                                    <td>Uitvoering overeenkomst</td>
+                                    <td>7 jaar (fiscale bewaarplicht)</td>
+                                </tr>
+                                <tr>
+                                    <td>Nieuwsbrief verzenden</td>
+                                    <td>Toestemming</td>
+                                    <td>Tot intrekking toestemming</td>
+                                </tr>
+                                <tr>
+                                    <td>Website verbeteren</td>
+                                    <td>Toestemming (analytics)</td>
+                                    <td>26 maanden</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h2>4. Delen wij uw gegevens?</h2>
+                        <p>Wij delen uw gegevens met:</p>
+                        <ul>
+                            <li><strong>WhatsApp/Meta</strong> (voor communicatie via WhatsApp) - zie sectie 4.1</li>
+                            <li><strong>Hostingprovider</strong> (websitehosting binnen de EU)</li>
+                        </ul>
+                        <p>Wij sluiten verwerkersovereenkomsten met deze partijen.</p>
+
+                        <h3>4.1 WhatsApp communicatie</h3>
+                        <p>
+                            Wanneer u contact met ons opneemt via WhatsApp, worden uw berichten en contactgegevens
+                            verwerkt door Meta Platforms Inc. (VS). Meta verwerkt deze gegevens volgens hun
+                            privacybeleid en op basis van de Standard Contractual Clauses van de Europese Commissie.
+                        </p>
+
+                        <h2>5. Uw rechten</h2>
+                        <p>U heeft de volgende rechten onder de AVG:</p>
+                        <ul>
+                            <li><strong>Inzage:</strong> U kunt opvragen welke gegevens wij van u hebben</li>
+                            <li><strong>Rectificatie:</strong> U kunt onjuiste gegevens laten corrigeren</li>
+                            <li><strong>Verwijdering:</strong> U kunt vragen uw gegevens te wissen</li>
+                            <li><strong>Beperking:</strong> U kunt vragen de verwerking te beperken</li>
+                            <li><strong>Bezwaar:</strong> U kunt bezwaar maken tegen verwerking</li>
+                            <li><strong>Overdraagbaarheid:</strong> U kunt uw gegevens in digitaal formaat ontvangen</li>
+                        </ul>
+                        <p>
+                            Neem contact op via <a href="mailto:privacy@interactivemove.nl">privacy@interactivemove.nl</a>.
+                            Wij reageren binnen 30 dagen op uw verzoek.
+                        </p>
+
+                        <h2>6. Beveiliging</h2>
+                        <p>Wij nemen passende maatregelen om uw gegevens te beschermen:</p>
+                        <ul>
+                            <li>SSL/TLS-versleuteling op onze website</li>
+                            <li>Beperkte toegang tot persoonsgegevens</li>
+                            <li>Regelmatige beveiligingsupdates</li>
+                            <li>Geen externe trackingdiensten of fonts (self-hosted)</li>
+                        </ul>
+
+                        <h2>7. Cookies</h2>
+                        <p>
+                            Zie ons <a href="/cookies">Cookiebeleid</a> voor informatie over cookies
+                            die wij gebruiken.
+                        </p>
+
+                        <h2>8. Wijzigingen</h2>
+                        <p>
+                            Wij kunnen dit privacybeleid wijzigen. De meest recente versie staat altijd
+                            op deze pagina met de datum van laatste wijziging.
+                        </p>
+
+                        <h2>9. Klachten</h2>
+                        <p>
+                            Heeft u een klacht over hoe wij met uw gegevens omgaan? Neem contact met ons op
+                            via <a href="mailto:privacy@interactivemove.nl">privacy@interactivemove.nl</a>.
+                        </p>
+                        <p>
+                            U kunt ook een klacht indienen bij de Autoriteit Persoonsgegevens:<br>
+                            <a href="https://autoriteitpersoonsgegevens.nl/nl/zelf-doen/gebruik-uw-privacyrechten/klacht-melden-bij-de-ap" target="_blank" rel="noopener">
+                                autoriteitpersoonsgegevens.nl
+                            </a>
+                        </p>
+
+                        <h2>10. Contact</h2>
+                        <p>
+                            <strong>Inter Active Move B.V.</strong><br>
+                            Smitspol 15K<br>
+                            3861RS Nijkerk<br>
+                            Nederland<br><br>
+                            E-mail: <a href="mailto:privacy@interactivemove.nl">privacy@interactivemove.nl</a><br>
+                            Telefoon: <a href="tel:+31623998934">+31 6 23 99 89 34</a>
+                        </p>
+                    </article>
+                </div>
+            </section>
+        
+
+        <!-- Footer -->
+        <footer class="footer-professional">
+            <div class="footer-container">
+                <div class="footer-column footer-brand">
+                    <img src="media/logo-final.webp" alt="InterActiveMove" class="footer-logo">
+                    <p class="footer-tagline">Beweeg, Leer en Speel met InterActiveMove</p>
+                <div class="footer-credit"><span>Website by </span><a href="https://oopuo.com" target="_blank" rel="noopener noreferrer">OOPUO</a></div>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">Over Ons</a></li>
+                        <li><a href="/pricing">Prijzen</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Juridisch</h4>
+                    <ul class="footer-links">
+                        <li><a href="/privacy">Privacybeleid</a></li>
+                        <li><a href="/cookies">Cookiebeleid</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Contact</h4>
+                    <div class="footer-contact">
+                        <p><strong>Inter Active Move B.V.</strong></p>
+                        <p>Smitspol 15K, 3861RS Nijkerk</p>
+                        <p>Tel: <a href="tel:+31623998934">+31 6 23 99 89 34</a></p>
+                        <p>Email: <a href="mailto:klantcontact@interactivemove.nl">klantcontact@interactivemove.nl</a></p>
+                        <p style="margin-top: 0.5rem">KvK: 96157895</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Inter Active Move B.V. Alle rechten voorbehouden.</p>
+            </div>
+        </footer>
+
+        </main>
+    </div>
+
+    <script src="projector.js"></script>
+
+    <script src="/js/site.js?v=1773933720"></script>
+    <script src="/js/cookie-consent.js"></script>
+    <script src="/js/contact-form.js"></script>
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/49291889.js"></script>
+    <script src="js/chat-config.js"></script>
+    <script src="js/chat-widget.js"></script>
+</body>
+</html>

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onderwijs | InterActiveMove</title>
+    <meta name="description" content="Educatieve interactieve oplossingen voor scholen en het onderwijs.">
+    <link rel="icon" href="media/icon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css?v=1773942644">
+
+    <script src="/js/htmx.min.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KPX78C22');</script>
+</head>
+<body data-page="education" data-base="" data-section="">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPX78C22" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+    <a href="#main-content" class="skip-link">Ga naar inhoud</a>
+    
+    <div id="global-canvas-container">
+        <canvas id="projector-canvas"></canvas>
+    </div>
+    
+    <div id="page-wrapper">
+        <!-- NAV (permanent, bilingual) -->
+        <header>
+            <a href="/"><img src="media/logo-final.webp" alt="InterActiveMove" class="logo-img"></a>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item dropdown">
+                        <button class="nav-link"><span class="lang-nl">Producten</span><span class="lang-en">Products</span></button>
+                        <div class="dropdown-menu">
+                            <a href="/products/2-in-1-floor-wall"><span class="lang-nl">2-in-1 Vloer &amp; Muur</span><span class="lang-en">2-in-1 Floor &amp; Wall</span></a>
+                            <a href="/products/interactive-floor"><span class="lang-nl">Interactieve Vloer</span><span class="lang-en">Interactive Floor</span></a>
+                            <a href="/products/interactive-wall"><span class="lang-nl">Interactieve Muur</span><span class="lang-en">Interactive Wall</span></a>
+                            <a href="/products/interactive-sandbox"><span class="lang-nl">Interactieve Zandbak</span><span class="lang-en">Interactive Sandbox</span></a>
+                            <a href="/products/software"><span class="lang-nl">Software &amp; Maatwerk</span><span class="lang-en">Software &amp; Customization</span></a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <button class="nav-link"><span class="lang-nl">Mogelijkheden</span><span class="lang-en">Solutions</span></button>
+                        <div class="dropdown-menu">
+                            <a href="/build-a-park"><span class="lang-nl">Bouw een Park</span><span class="lang-en">Build a Park</span></a>
+                            <a href="/3d-games">3D <span class="lang-nl">Spellen</span><span class="lang-en">Games</span></a>
+                            <a href="/entertainment"><span class="lang-nl">Parken &amp; Speelhallen</span><span class="lang-en">Parks &amp; Arcades</span></a>
+                            <a href="/education"><span class="lang-nl">Onderwijs</span><span class="lang-en">Education</span></a>
+                            <a href="/healthcare"><span class="lang-nl">Zorg &amp; Revalidatie</span><span class="lang-en">Care &amp; Rehabilitation</span></a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                    <li class="nav-item">
+                        <a href="/pricing" class="nav-link"><span class="lang-nl">Prijzen</span><span class="lang-en">Prices</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/about" class="nav-link"><span class="lang-nl">Over Ons</span><span class="lang-en">About Us</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/blog" class="nav-link">Blog</a>
+                    </li>
+                </ul>
+                <div class="lang-toggle">
+                    <button class="lang-btn active" data-lang="nl" onclick="switchLang('nl')">NL</button>
+                    <span class="divider">|</span>
+                    <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+                </div>
+                <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <a href="/#contact" class="btn" style="padding: 0.5rem 1.5rem; font-size: 0.9rem; border-radius: 999px;">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Mobile Navigation Overlay -->
+        <div class="mobile-nav" id="mobileNav">
+            <a href="/" onclick="closeMobileNav()">Home</a>
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)">
+                    <span class="lang-nl">Producten</span><span class="lang-en">Products</span> <svg class="mobile-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="mobile-dropdown-items">
+                    <a href="/products/2-in-1-floor-wall"><span class="lang-nl">2-in-1 Vloer &amp; Muur</span><span class="lang-en">2-in-1 Floor &amp; Wall</span></a>
+                    <a href="/products/interactive-floor"><span class="lang-nl">Interactieve Vloer</span><span class="lang-en">Interactive Floor</span></a>
+                    <a href="/products/interactive-wall"><span class="lang-nl">Interactieve Muur</span><span class="lang-en">Interactive Wall</span></a>
+                    <a href="/products/interactive-sandbox"><span class="lang-nl">Interactieve Zandbak</span><span class="lang-en">Interactive Sandbox</span></a>
+                    <a href="/products/software"><span class="lang-nl">Software &amp; Maatwerk</span><span class="lang-en">Software &amp; Customization</span></a>
+                </div>
+            </div>
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)">
+                    <span class="lang-nl">Mogelijkheden</span><span class="lang-en">Solutions</span> <svg class="mobile-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="mobile-dropdown-items">
+                    <a href="/build-a-park"><span class="lang-nl">Bouw een Park</span><span class="lang-en">Build a Park</span></a>
+                    <a href="/3d-games">3D <span class="lang-nl">Spellen</span><span class="lang-en">Games</span></a>
+                    <a href="/entertainment"><span class="lang-nl">Parken &amp; Speelhallen</span><span class="lang-en">Parks &amp; Arcades</span></a>
+                    <a href="/education"><span class="lang-nl">Onderwijs</span><span class="lang-en">Education</span></a>
+                    <a href="/healthcare"><span class="lang-nl">Zorg &amp; Revalidatie</span><span class="lang-en">Care &amp; Rehabilitation</span></a>
+                </div>
+            </div>
+            <a href="/pricing" onclick="closeMobileNav()"><span class="lang-nl">Prijzen</span><span class="lang-en">Prices</span></a>
+            <a href="/about" onclick="closeMobileNav()"><span class="lang-nl">Over Ons</span><span class="lang-en">About Us</span></a>
+            <a href="/blog">Blog</a>
+            <a href="/#contact" onclick="closeMobileNav()">Contact</a>
+        </div>
+
+        <!-- Content Area (swapped by HTMX on lang change) -->
+        <main id="content-area">
+            
+    <!-- Hero Section: Education Focus -->
+    <section class="hero hero-glass" style="min-height: 60vh;">
+        <div id="hero-video-container" class="hero-video-container">
+            <img src="media/hero_onderwijs.webp" alt="Onderwijs Hero"
+                style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
+        </div>
+        <div class="hero-content">
+            <h1 class="industrial-label" style="text-shadow: 2px 2px 0 #000;">BEWEGEND LEREN DAT BEKLIJFT</h1>
+            <p class="hero-subtitle">
+                Interactieve projectiesystemen die kinderen activeren, motiveren en laten leren
+            </p>
+
+            <!-- Key Stats Bar -->
+            <div class="pricing-trust-badges" style="margin-bottom: 2rem;">
+                <div class="trust-badge">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                    </svg>
+                    <span>95% hogere betrokkenheid</span>
+                </div>
+                <div class="trust-badge">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                    </svg>
+                    <span>40% betere retentie</span>
+                </div>
+                <div class="trust-badge">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                    </svg>
+                    <span>100+ scholen</span>
+                </div>
+            </div>
+
+            <div class="hero-cta-group">
+                <a href="/#contact" class="btn btn-primary">Gratis Schooldemo Aanvragen</a>
+                <a href="#pakketten" class="btn btn-secondary">Bekijk Pakketten</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem/Solution Section -->
+    <section class="section section-opaque-dark section-reveal">
+        <div class="container">
+            <div class="problem-solution-grid reveal-stagger" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1000px; margin: 0 auto; align-items: stretch;">
+
+                <!-- Problem Box -->
+                <div class="problem-box" style="background: rgba(255,255,255,0.08); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; padding: 2.5rem;">
+                    <h3 style="color: #fff; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                        <svg width="24" height="24" fill="none" stroke="rgba(255,255,255,0.6)" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        Herkent u dit?
+                    </h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: 0.85rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: flex-start; gap: 0.75rem; color: rgba(255,140,140,0.9);">
+                            <svg width="20" height="20" fill="none" stroke="rgba(255,255,255,0.6)" viewBox="0 0 24 24" stroke-width="2" style="flex-shrink: 0; margin-top: 2px;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/></svg>
+                            <span>Kinderen die niet stil kunnen zitten</span>
+                        </li>
+                        <li style="padding: 0.85rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: flex-start; gap: 0.75rem; color: rgba(255,140,140,0.9);">
+                            <svg width="20" height="20" fill="none" stroke="rgba(255,255,255,0.6)" viewBox="0 0 24 24" stroke-width="2" style="flex-shrink: 0; margin-top: 2px;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/></svg>
+                            <span>Moeite om alle leerlingen te betrekken</span>
+                        </li>
+                        <li style="padding: 0.85rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: flex-start; gap: 0.75rem; color: rgba(255,140,140,0.9);">
+                            <svg width="20" height="20" fill="none" stroke="rgba(255,255,255,0.6)" viewBox="0 0 24 24" stroke-width="2" style="flex-shrink: 0; margin-top: 2px;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/></svg>
+                            <span>Beperkte gymzaal-mogelijkheden</span>
+                        </li>
+                        <li style="padding: 0.85rem 0; display: flex; align-items: flex-start; gap: 0.75rem; color: rgba(255,140,140,0.9);">
+                            <svg width="20" height="20" fill="none" stroke="rgba(255,255,255,0.6)" viewBox="0 0 24 24" stroke-width="2" style="flex-shrink: 0; margin-top: 2px;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/></svg>
+                            <span>Schermtijd verminderen maar digitaal blijven</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Solution Box -->
+                <div class="solution-box" style="background: rgba(255,255,255,0.08); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; padding: 2.5rem;">
+                    <h3 style="color: #fff; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                        <svg width="24" height="24" fill="none" stroke="rgba(255,255,255,0.6)" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        Onze oplossing
+                    </h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: 0.85rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: flex-start; gap: 0.75rem; color: rgba(140,255,160,0.9);">
+                            <svg width="20" height="20" fill="rgba(255,255,255,0.6)" viewBox="0 0 20 20" style="flex-shrink: 0; margin-top: 2px;">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Bewegend leren: rekenen, taal, motoriek combineren</span>
+                        </li>
+                        <li style="padding: 0.85rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: flex-start; gap: 0.75rem; color: rgba(140,255,160,0.9);">
+                            <svg width="20" height="20" fill="rgba(255,255,255,0.6)" viewBox="0 0 20 20" style="flex-shrink: 0; margin-top: 2px;">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Inclusief: alle kinderen kunnen meedoen</span>
+                        </li>
+                        <li style="padding: 0.85rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: flex-start; gap: 0.75rem; color: rgba(140,255,160,0.9);">
+                            <svg width="20" height="20" fill="rgba(255,255,255,0.6)" viewBox="0 0 20 20" style="flex-shrink: 0; margin-top: 2px;">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Flexibel: gym, speelzaal of hal</span>
+                        </li>
+                        <li style="padding: 0.85rem 0; display: flex; align-items: flex-start; gap: 0.75rem; color: rgba(140,255,160,0.9);">
+                            <svg width="20" height="20" fill="rgba(255,255,255,0.6)" viewBox="0 0 20 20" style="flex-shrink: 0; margin-top: 2px;">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Actieve schermtijd die daadwerkelijk beweegt</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Alignment -->
+    <section class="section section-opaque-light section-reveal">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h2 class="industrial-label reveal-fade-up">Past in Uw Lesplan</h2>
+                <p class="reveal-fade-up" style="color: var(--color-text-muted)">Alle spellen zijn afgestemd op kerndoelen basisonderwijs</p>
+            </div>
+
+            <div class="curriculum-grid reveal-stagger" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; max-width: 900px; margin: 0 auto;">
+                <div class="curriculum-item" style="text-align: center; background: #fff; padding: 1.5rem; border-radius: var(--radius-card); box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
+                    <div style="margin-bottom: 0.5rem;"><svg width="40" height="40" fill="none" stroke="var(--color-primary)" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.6 19.8M10.8 2.25L7.2 22.05"/></svg></div>
+                    <h4 style="margin-bottom: 0.25rem">Rekenen</h4>
+                    <p style="color: var(--color-primary); font-weight: 700; margin: 0">15</p>
+                    <p style="color: var(--color-text-muted); margin: 0">spellen</p>
+                </div>
+                <div class="curriculum-item" style="text-align: center; background: #fff; padding: 1.5rem; border-radius: var(--radius-card); box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
+                    <div style="margin-bottom: 0.5rem;"><svg width="40" height="40" fill="none" stroke="var(--color-primary)" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg></div>
+                    <h4 style="margin-bottom: 0.25rem">Taal</h4>
+                    <p style="color: var(--color-primary); font-weight: 700; margin: 0">12</p>
+                    <p style="color: var(--color-text-muted); margin: 0">spellen</p>
+                </div>
+                <div class="curriculum-item" style="text-align: center; background: #fff; padding: 1.5rem; border-radius: var(--radius-card); box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
+                    <div style="margin-bottom: 0.5rem;"><svg width="40" height="40" fill="none" stroke="var(--color-primary)" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg></div>
+                    <h4 style="margin-bottom: 0.25rem">Gym</h4>
+                    <p style="color: var(--color-primary); font-weight: 700; margin: 0">20</p>
+                    <p style="color: var(--color-text-muted); margin: 0">spellen</p>
+                </div>
+                <div class="curriculum-item" style="text-align: center; background: #fff; padding: 1.5rem; border-radius: var(--radius-card); box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
+                    <div style="margin-bottom: 0.5rem;"><svg width="40" height="40" fill="var(--color-primary)" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55C7.79 13 6 14.79 6 17s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg></div>
+                    <h4 style="margin-bottom: 0.25rem">Muziek</h4>
+                    <p style="color: var(--color-primary); font-weight: 700; margin: 0">8</p>
+                    <p style="color: var(--color-text-muted); margin: 0">spellen</p>
+                </div>
+                <div class="curriculum-item" style="text-align: center; background: #fff; padding: 1.5rem; border-radius: var(--radius-card); box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
+                    <div style="margin-bottom: 0.5rem;"><svg width="40" height="40" fill="none" stroke="var(--color-primary)" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg></div>
+                    <h4 style="margin-bottom: 0.25rem">Sociale Vaard.</h4>
+                    <p style="color: var(--color-primary); font-weight: 700; margin: 0">10</p>
+                    <p style="color: var(--color-text-muted); margin: 0">spellen</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teacher Testimonial -->
+    <section class="section section-opaque-dark">
+        <div class="container">
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div class="testimonial-featured" style="background: rgba(255,255,255,0.05); border-radius: var(--radius-card); padding: 3rem; border-left: 4px solid var(--color-primary);">
+                    <div class="video-container" style="margin-bottom: 2rem;">
+                        <div class="video-wrapper">
+                            <video controls preload="metadata" autoplay muted loop playsinline>
+                                <source src="media/education-page-video.webm" type="video/webm">
+                <source src="media/education-page-video.mp4" type="video/mp4">
+                                Uw browser ondersteunt geen video.
+                            </video>
+                        </div>
+                    </div>
+
+                    <blockquote style="color: #fff; font-style: italic; margin-bottom: 1.5rem; line-height: 1.7">
+                        "Sinds we de interactieve vloer hebben, is de gymles het favoriete moment van de week. Kinderen leren zonder het door te hebben!"
+                    </blockquote>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div style="width: 56px; height: 56px; background: var(--color-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #000;">
+                            JL
+                        </div>
+                        <div>
+                            <p style="color: #fff; font-weight: 600; margin: 0;">Juf Lisa</p>
+                            <p style="color: rgba(255,255,255,0.7); margin: 0">Groep 4, Basisschool</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- School Packages -->
+    <section id="pakketten" class="packages-section">
+        <div class="container">
+            <h2 class="industrial-label" style="text-align: center;">Speciale Onderwijspakketten</h2>
+            <p class="section-subtitle" style="text-align: center; color: var(--color-text-muted); margin-bottom: 3rem;">
+                Subsidie-advies beschikbaar - wij helpen met aanvragen
+            </p>
+
+            <div class="packages-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 900px;">
+                <!-- Basisschool Package -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>Basisschool</h3>
+                        <p class="package-description">Ideaal voor regulier basisonderwijs</p>
+                    </div>
+                    <ul class="package-features">
+                        <li class="included">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Interactieve vloer
+                        </li>
+                        <li class="included">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            50 educatieve spellen
+                        </li>
+                        <li class="included">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Leerkracht-training
+                        </li>
+                        <li class="included">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Lesplan-integratie
+                        </li>
+                    </ul>
+                    <div class="package-footer">
+                        <a href="/#contact" class="btn btn-secondary" style="width: 100%;">Offerte Aanvragen</a>
+                    </div>
+                </div>
+
+                <!-- SBO / Speciaal Package -->
+                <div class="package-card featured">
+                    <div class="featured-badge">Meest Gekozen</div>
+                    <div class="package-header">
+                        <h3>SBO / Speciaal Onderwijs</h3>
+                        <p class="package-description">Extra ondersteuning voor inclusief leren</p>
+                    </div>
+                    <ul class="package-features">
+                        <li class="included">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Interactieve vloer
+                        </li>
+                        <li class="included">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            50 educatieve spellen
+                        </li>
+                        <li class="included">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Sensorische spellen module
+                        </li>
+                        <li class="included">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Extra training inclusief gebruik
+                        </li>
+                        <li class="included">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Persoonlijk implementatieplan
+                        </li>
+                    </ul>
+                    <div class="package-footer">
+                        <a href="/#contact" class="btn btn-primary" style="width: 100%;">Offerte Aanvragen</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Metrics -->
+    <section class="section section-opaque-light">
+        <div class="container">
+            <h2 class="industrial-label" style="text-align: center; margin-bottom: 3rem;">Meetbare Resultaten</h2>
+
+            <div style="max-width: 700px; margin: 0 auto; background: #fff; border-radius: var(--radius-card); padding: 2rem; box-shadow: 0 4px 24px rgba(0,0,0,0.08);">
+                <!-- Progress bars -->
+                <div style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="font-weight: 600;">Betrokkenheid</span>
+                        <span style="color: var(--color-primary); font-weight: 700;">+95%</span>
+                    </div>
+                    <div style="background: var(--color-surface); border-radius: 999px; height: 12px; overflow: hidden;">
+                        <div style="background: linear-gradient(90deg, var(--color-primary), #f5a800); height: 100%; width: 95%; border-radius: 999px;"></div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="font-weight: 600;">Concentratie</span>
+                        <span style="color: var(--color-primary); font-weight: 700;">+67%</span>
+                    </div>
+                    <div style="background: var(--color-surface); border-radius: 999px; height: 12px; overflow: hidden;">
+                        <div style="background: linear-gradient(90deg, var(--color-primary), #f5a800); height: 100%; width: 67%; border-radius: 999px;"></div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="font-weight: 600;">Samenwerking</span>
+                        <span style="color: var(--color-primary); font-weight: 700;">+89%</span>
+                    </div>
+                    <div style="background: var(--color-surface); border-radius: 999px; height: 12px; overflow: hidden;">
+                        <div style="background: linear-gradient(90deg, var(--color-primary), #f5a800); height: 100%; width: 89%; border-radius: 999px;"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="font-weight: 600;">Fysieke Activiteit</span>
+                        <span style="color: var(--color-primary); font-weight: 700;">+100%</span>
+                    </div>
+                    <div style="background: var(--color-surface); border-radius: 999px; height: 12px; overflow: hidden;">
+                        <div style="background: linear-gradient(90deg, var(--color-primary), #f5a800); height: 100%; width: 100%; border-radius: 999px;"></div>
+                    </div>
+                </div>
+
+                <p style="text-align: center; color: var(--color-text-muted); margin-top: 1.5rem; margin-bottom: 0">
+                    Bron: Intern onderzoek bij 50 basisscholen, 2025
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Educator FAQ -->
+    <section class="section section-opaque-light">
+        <div class="container">
+            <h2 class="industrial-label" style="text-align: center; margin-bottom: 3rem;">Veelgestelde Vragen</h2>
+
+            <div style="max-width: 800px; margin: 0 auto;">
+                <details class="accordion-item" style="background: #fff; border-radius: var(--radius-card); margin-bottom: 1rem; overflow: hidden;">
+                    <summary style="padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center;">
+                        Hoe past dit in ons bestaande lesplan?
+                    </summary>
+                    <div style="padding: 0 1.5rem 1.5rem; color: var(--color-text-muted);">
+                        Onze spellen zijn specifiek ontwikkeld om aan te sluiten bij de kerndoelen van het basisonderwijs. We bieden een implementatiegids and ondersteunen bij het integreren van de systemen in uw bestaande lesmethoden.
+                    </div>
+                </details>
+
+                <details class="accordion-item" style="background: #fff; border-radius: var(--radius-card); margin-bottom: 1rem; overflow: hidden;">
+                    <summary style="padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center;">
+                        Welke training krijgen onze leerkrachten?
+                    </summary>
+                    <div style="padding: 0 1.5rem 1.5rem; color: var(--color-text-muted);">
+                        Bij elk pakket is een uitgebreide training op locatie inbegrepen. Leerkrachten leren het systeem bedienen, spellen selecteren en aanpassen aan hun lesdoelen. Daarnaast bieden we online handleidingen en telefonische ondersteuning.
+                    </div>
+                </details>
+
+                <details class="accordion-item" style="background: #fff; border-radius: var(--radius-card); margin-bottom: 1rem; overflow: hidden;">
+                    <summary style="padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center;">
+                        Hoe zit het met onderhoud en updates?
+                    </summary>
+                    <div style="padding: 0 1.5rem 1.5rem; color: var(--color-text-muted);">
+                        Alle systemen worden geleverd met 2 jaar garantie. Software-updates zijn gratis en worden automatisch uitgevoerd. Ons serviceteam staat klaar voor eventuele technische vragen of onderhoud.
+                    </div>
+                </details>
+
+                <details class="accordion-item" style="background: #fff; border-radius: var(--radius-card); margin-bottom: 1rem; overflow: hidden;">
+                    <summary style="padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center;">
+                        Kunnen wij eigen spellen maken?
+                    </summary>
+                    <div style="padding: 0 1.5rem 1.5rem; color: var(--color-text-muted);">
+                        Met onze Game Editor kunnen leerkrachten eigen spelcontent creeren. Maak quizzen passend bij uw lesmateriaal, voeg eigen afbeeldingen toe, of pas bestaande spellen aan. Geen technische kennis vereist!
+                    </div>
+                </details>
+
+                <details class="accordion-item" style="background: #fff; border-radius: var(--radius-card); margin-bottom: 1rem; overflow: hidden;">
+                    <summary style="padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center;">
+                        Zijn er subsidies beschikbaar?
+                    </summary>
+                    <div style="padding: 0 1.5rem 1.5rem; color: var(--color-text-muted);">
+                        Diverse subsidies zijn beschikbaar voor onderwijsinstellingen, waaronder het Nationaal Programma Onderwijs en regionale stimuleringsregelingen voor bewegingsonderwijs. Wij helpen u graag bij het identificeren van mogelijkheden en ondersteunen bij de aanvraag.
+                    </div>
+                </details>
+
+                <details class="accordion-item" style="background: #fff; border-radius: var(--radius-card); overflow: hidden;">
+                    <summary style="padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center;">
+                        Wat is de minimale ruimte vereiste?
+                    </summary>
+                    <div style="padding: 0 1.5rem 1.5rem; color: var(--color-text-muted);">
+                        Voor een interactieve vloer adviseren wij minimaal 4x3 meter vrije vloerruimte met een plafondhoogte van 2,5 meter. Voor kleinere ruimtes hebben we ook compacte oplossingen. We komen graag langs voor een vrijblijvende ruimtescan.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- School CTA -->
+    <section class="final-cta-section">
+        <div class="container">
+            <h2>Plan een Gratis Schooldemonstratie</h2>
+            <p class="subtitle">
+                Wij komen naar uw school voor een live demonstratie. Laat leerlingen en leerkrachten zelf ervaren wat interactief leren kan betekenen.
+            </p>
+
+            <div class="final-cta-buttons">
+                <a href="/#contact" class="cta-email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0;"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+                    <span class="cta-text">
+                        <strong>Demo Aanvragen</strong>
+                        <small>Direct via E-mail</small>
+                    </span>
+                </a>
+                <a href="/pricing" class="btn btn-secondary" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); color: #fff;">
+                    Bekijk Prijzen
+                </a>
+            </div>
+
+            <div class="final-cta-trust">
+                <span>
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                    </svg>
+                    Vrijblijvend
+                </span>
+                <span>
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                    </svg>
+                    Op uw locatie
+                </span>
+                <span>
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                    </svg>
+                    Inclusief presentatie
+                </span>
+            </div>
+        </div>
+    </section>
+
+
+<!-- Mobile Sticky CTA -->
+<a href="/#contact" class="mobile-cta-btn">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0;"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+    Gratis Schooldemo Aanvragen
+</a>
+
+<footer class="footer-professional">
+    <div class="footer-container">
+        <div class="footer-column footer-brand">
+            <img src="media/logo-final.webp" alt="InterActiveMove" class="footer-logo" loading="lazy">
+            <p class="footer-tagline">Beweeg, Leer en Speel met InterActiveMove</p>
+                <div class="footer-credit"><span>Website by </span><a href="https://oopuo.com" target="_blank" rel="noopener noreferrer">OOPUO</a></div>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/interactivemove" target="_blank" aria-label="Facebook"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+                    </svg></a>
+                <a href="https://www.instagram.com/interactivemove" target="_blank" aria-label="Instagram"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12s.014 3.668.072 4.948c.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24s3.668-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948s-.014-3.668-.072-4.948c-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                    </svg></a>
+                <a href="https://www.youtube.com/@IAM-InterActiveMove" target="_blank" aria-label="YouTube"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+            </div>
+        </div>
+        <div class="footer-column">
+            <h4 class="footer-heading">Quick Links</h4>
+            <ul class="footer-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/build-a-park">Bouw een Park</a></li>
+                <li><a href="/about">Over Ons</a></li>
+                <li><a href="/pricing">Prijzen</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4 class="footer-heading">Producten</h4>
+            <ul class="footer-links">
+                <li><a href="/products/interactive-floor">Interactieve Vloer</a></li>
+                <li><a href="/products/interactive-wall">Interactieve Muur</a></li>
+                <li><a href="/products/interactive-sandbox">Interactieve Zandbak</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4 class="footer-heading">Contact</h4>
+            <div class="footer-contact">
+                <p><strong>Inter Active Move B.V.</strong></p>
+                <p>Smitspol 15K, 3861RS Nijkerk</p>
+                <p>Tel: <a href="tel:+31623998934">+31 6 2399 8934</a></p>
+                <p>Email: <a href="mailto:klantcontact@interactivemove.nl">klantcontact@interactivemove.nl</a></p>
+                <p style="margin-top: 0.5rem">KvK: 96157895</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 InterActiveMove B.V. Alle rechten voorbehouden.</p>
+    </div>
+</footer>
+
+        </main>
+    </div>
+
+    <script src="projector.js"></script>
+
+    <script src="/js/site.js?v=1773933720"></script>
+    <script src="/js/cookie-consent.js"></script>
+    <script src="/js/contact-form.js"></script>
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/49291889.js"></script>
+    <script src="js/chat-config.js"></script>
+    <script src="js/chat-widget.js"></script>
+</body>
+</html>

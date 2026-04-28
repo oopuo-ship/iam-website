@@ -1,0 +1,37 @@
+# IAM chat proxy — PRODUCTION env file
+# Rendered to /etc/iam-api/env by bootstrap.sh (chmod 600, owner iam:iam)
+# DO NOT commit real values. DO NOT echo this file to logs.
+
+# --- OpenRouter (chat proxy) ---
+OPENROUTER_API_KEY=REPLACE_ME_OPENROUTER_PROD_KEY
+CHAT_MODEL=google/gemini-2.0-flash-001
+
+# --- Listener ---
+CHAT_PORT=3860
+
+# --- CORS allowlist (D-06) ---
+CHAT_ALLOWED_ORIGINS=https://interactivemove.nl
+
+# --- Rate limit (D-07) ---
+CHAT_RATE_LIMIT_MAX=10
+CHAT_RATE_LIMIT_WINDOW_MS=60000
+
+# --- Token budget (D-10) ---
+TOKEN_BUDGET_PATH=/var/lib/iam-api/token-budget.json
+
+# --- Logging ---
+LOG_LEVEL=info
+
+# --- HubSpot (reserved for Phase 04; keep placeholders so env file is stable across phases) ---
+HUBSPOT_PORTAL_ID=REPLACE_ME_HUBSPOT_PORTAL_ID
+HUBSPOT_CONTACT_FORM_GUID=REPLACE_ME_HUBSPOT_CONTACT_FORM_GUID
+HUBSPOT_PARTNER_FORM_GUID=REPLACE_ME_HUBSPOT_PARTNER_FORM_GUID
+
+# --- Contact-form direct email notification (local MTA) ---
+# When both vars are set, every validated contact submission also sends a
+# direct email through the host's local mail server (localhost:25, no auth).
+# Designed for the Plesk production target where Postfix runs on the same box
+# (same delivery path WordPress + Elementor uses). On a host with no local MTA
+# this is a silent no-op — leave the vars unset on staging.
+NOTIFY_EMAIL_TO=klantcontact@interactivemove.nl
+NOTIFY_EMAIL_FROM=notifications@interactivemove.nl
